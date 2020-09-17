@@ -1,0 +1,35 @@
+{
+	"GamePath": "E:\\SSDLibrary\\steamapps\\common\\Good Company\\GoodCompany.exe",
+	"Profiles": [
+		{
+			"Name": "My First Profile",
+			"Mods": [
+				{
+					"Name": "TestMod",
+					"Path": "./mods/TestMod.dll",
+					"Enabled": true
+				},
+				{
+					"Name": "TestMod2",
+					"Path": "./mods/TestMod2.dll",
+					"Enabled": true
+				},
+				{
+					"Name": "TestMod3",
+					"Path": "./mods/TestMod3.dll",
+					"Enabled": false
+				}
+			]
+		},
+		{
+			"Name": "Test Profile",
+			"Mods": [
+				{
+					"Name": "TestMod",
+					"Path": "./mods/TestMod.dll",
+					"Enabled": false
+				}
+			]
+		}
+	]
+}

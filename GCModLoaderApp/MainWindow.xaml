@@ -1,0 +1,15 @@
+﻿<Window x:Class="GoodCompanyModLoader.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:GoodCompanyModLoader"
+		mc:Ignorable="d"
+		Title="Good Company Mod Loader" Height="450" Width="800">
+	<Grid>
+		<TextBlock Margin="10.958,10,652.553,379.745" Text="Select the executable:" VerticalAlignment="Center" Height="29.255" />
+		<TextBox x:Name="FilePickerText" Margin="144.447,10,320.744,379.745" IsReadOnly="True" />
+		<Button Margin="476.256,10,286.744,379.745" Click="PickFile" Width="29" Content="..." />
+		<Button Margin="10,76,375.667,313.745" Click="LaunchGame" Content="Launch Game!"/>
+	</Grid>
+</Window>
