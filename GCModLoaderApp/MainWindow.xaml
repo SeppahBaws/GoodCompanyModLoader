@@ -11,5 +11,19 @@
 		<TextBox x:Name="FilePickerText" Margin="144.447,10,320.744,379.745" IsReadOnly="True" />
 		<Button Margin="476.256,10,286.744,379.745" Click="PickFile" Width="29" Content="..." />
 		<Button Margin="10,76,375.667,313.745" Click="LaunchGame" Content="Launch Game!"/>
+		<TabControl HorizontalAlignment="Left" Height="203.404" Margin="38.128,142.468,0,0" VerticalAlignment="Top" Width="635.213">
+			<TabItem Header="Mods">
+				<Grid Background="#FFE5E5E5">
+					<ListBox HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="329.787" Margin="10,10,0,0"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Assets">
+				<Grid Background="#FFE5E5E5">
+					<ListBox x:Name="LoadedAssetsListbox" HorizontalAlignment="Left" Height="134" VerticalAlignment="Top" Width="629" Margin="0,41,0,0"/>
+					<Label Content="Loaded assets" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="169.468"/>
+					<Button Content="Load Assets" HorizontalAlignment="Left" Margin="393.681,10,0,0" VerticalAlignment="Top" Width="225.319" Height="26" Click="OnLoadAssets_Click"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
 	</Grid>
 </Window>

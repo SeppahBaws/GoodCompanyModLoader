@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+// using Assimp;
 using GoodCompany.GUI;
 using BepInEx;
 using HarmonyLib;
@@ -120,7 +121,7 @@ namespace GCModLoader
 			List<string> files = Directory.GetFiles(GetModsFolder()).ToList();
 			List<string> mods = new List<string>();
 
-			string configText = File.ReadAllText(GetModsFolder() + "\\ModsConfig.json");
+			string configText = File.ReadAllText(GetLoaderRootFolder() + "\\ModsConfig.json");
 			ModsConfig config = JsonConvert.DeserializeObject<ModsConfig>(configText);
 
 			foreach (string file in files)
@@ -157,23 +158,6 @@ namespace GCModLoader
 			{
 				ModLogger.LogInfo(loadedMod);
 			}
-
-			// ModLogger.LogInfo($"{mods.Count} Mods found:");
-			// foreach (string mod in mods)
-			// {
-			// 	ModLogger.Log(mod);
-			// 	// string fileName = mod.Substring(mod.LastIndexOf('\\') + 1);
-			// 	// ModLogger.LogInfo(fileName);
-			// 	//
-			// 	// // TODO: make it read the config correctly and only enable the mods that are listed in there, and that are explicitly enabled.
-			// 	// Mod foundMod = configMods.Find(x => x.File == mod);
-			// 	// ModLogger.Log($"found mod: {foundMod.Name} ({foundMod.File}) enabled: {foundMod.Enabled}");
-			// 	// if (!foundMod.Enabled)
-			// 	// 	return;
-			//
-			// 	// Assembly currentMod = Assembly.LoadFile(mod);
-			// 	// harmony.PatchAll(currentMod);
-			// }
 
 			LogLoadedAssemblies();
 		}

@@ -2,19 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using HarmonyLib;
+using Assimp;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
@@ -27,6 +16,7 @@ namespace GoodCompanyModLoader
 	{
 		private string _filePath = "";
 		private ModConfig _modConfig;
+		private List<string> _assetPaths = new List<string>();
 		
 		public MainWindow()
 		{
@@ -68,13 +58,32 @@ namespace GoodCompanyModLoader
 				return;
 			}
 
-			Process game = Process.Start(_filePath);
+			Process.Start(_filePath);
+		}
 
-			var harmony = new Harmony("com.SeppahBaws.GoodCompanyModLoader");
-			// var assembly = Assembly.LoadFile("<PATH TO MOD>");
-			// var assembly = Assembly.LoadFile(@"E:\SSDLibrary\steamapps\common\Good Company\BepInEx\plugins\GoodCompanyTestMod.dll");
-			var assembly = Assembly.GetExecutingAssembly();
-			harmony.PatchAll(assembly);
+
+		private void OnLoadAssets_Click(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog filePicker = new OpenFileDialog {Filter = "Any Assets|*.*"};
+
+			if (filePicker.ShowDialog() == true)
+			{
+				string assetPath = filePicker.FileName;
+
+				// Check for duplicates
+				if (_assetPaths.LastIndexOf(assetPath) > -1)
+				{
+					MessageBox.Show("This file has already been loaded!");
+					return;
+				}
+
+				_assetPaths.Add(assetPath);
+				LoadedAssetsListbox.Items.Add(assetPath);
+
+				AssimpContext importer = new AssimpContext();
+
+				Scene scene = importer.ImportFile(assetPath, PostProcessSteps.None);
+			}
 		}
 	}
 }
