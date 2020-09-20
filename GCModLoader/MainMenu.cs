@@ -44,6 +44,10 @@ namespace GCModLoader
 			Debug.Log($"Cloned text position: {_modLoaderText.transform.position}");
 			
 			Debug.Log(_modLoaderText);
+
+			GameObject modManager = Object.Instantiate(new GameObject());
+			modManager.name = "Persistent Mod Manager";
+			modManager.AddComponent<PersistentModManager>();
 		}
 	}
 }

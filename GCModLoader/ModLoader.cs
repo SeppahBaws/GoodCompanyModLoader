@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-// using Assimp;
 using GoodCompany.GUI;
 using BepInEx;
 using HarmonyLib;

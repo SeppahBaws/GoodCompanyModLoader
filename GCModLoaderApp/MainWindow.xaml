@@ -7,11 +7,11 @@
 		mc:Ignorable="d"
 		Title="Good Company Mod Loader" Height="450" Width="800">
 	<Grid>
-		<TextBlock Margin="10.958,10,652.553,379.745" Text="Select the executable:" VerticalAlignment="Center" Height="29.255" />
-		<TextBox x:Name="FilePickerText" Margin="144.447,10,320.744,379.745" IsReadOnly="True" />
-		<Button Margin="476.256,10,286.744,379.745" Click="PickFile" Width="29" Content="..." />
-		<Button Margin="10,76,375.667,313.745" Click="LaunchGame" Content="Launch Game!"/>
-		<TabControl HorizontalAlignment="Left" Height="203.404" Margin="38.128,142.468,0,0" VerticalAlignment="Top" Width="635.213">
+		<TextBlock Margin="10.958,10,0,0" Text="Select the executable:" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="150.489" />
+		<TextBox x:Name="FilePickerText" Margin="166.447,10,44,0" IsReadOnly="True" VerticalAlignment="Top" Height="29" />
+		<Button Margin="0,10,10,0" Click="PickFile" Width="29" Content="..." HorizontalAlignment="Right" VerticalAlignment="Top" Height="29" />
+		<Button Margin="10,44,0,0" Click="LaunchGame" Content="Launch Game!" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="151.447"/>
+		<TabControl Margin="10,110.255,10,10">
 			<TabItem Header="Mods">
 				<Grid Background="#FFE5E5E5">
 					<ListBox HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="329.787" Margin="10,10,0,0"/>
@@ -22,6 +22,18 @@
 					<ListBox x:Name="LoadedAssetsListbox" HorizontalAlignment="Left" Height="134" VerticalAlignment="Top" Width="629" Margin="0,41,0,0"/>
 					<Label Content="Loaded assets" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="169.468"/>
 					<Button Content="Load Assets" HorizontalAlignment="Left" Margin="393.681,10,0,0" VerticalAlignment="Top" Width="225.319" Height="26" Click="OnLoadAssets_Click"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Converter">
+				<Grid Background="#FFE5E5E5">
+					<Button x:Name="LoadModel" Content="Load model" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="142.021" Height="29" Click="Converter_LoadModel_Click"/>
+					<Button x:Name="LoadTexture" Content="Load texture" HorizontalAlignment="Left" Margin="157.021,10,0,0" VerticalAlignment="Top" Width="142.021" Height="29" Click="Converter_LoadTexture_Click"/>
+					<Label Content="Files to convert" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,44,0,0" Width="114.596"/>
+					<TextBox x:Name="ModelToEncodeBox" Margin="92.872,75,10,0" IsReadOnly="True" VerticalAlignment="Top" Height="29" />
+					<Button x:Name="Convert" Content="Convert!" HorizontalAlignment="Left" Margin="304.042,10,0,0" VerticalAlignment="Top" Width="142.021" Height="29" Click="Converter_ConvertModel_Click"/>
+					<Label Content="Model" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top"/>
+					<Label Content="Texture" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
+					<TextBox x:Name="TextureToEncodeBox" Margin="92.872,109,10,0" IsReadOnly="True" VerticalAlignment="Top" Height="29" />
 				</Grid>
 			</TabItem>
 		</TabControl>
